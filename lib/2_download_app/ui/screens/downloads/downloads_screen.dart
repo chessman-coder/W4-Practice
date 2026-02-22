@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:practice/2_download_app/ui/screens/downloads/widgets/download_tile.dart';
 import 'package:practice/2_download_app/ui/screens/settings/settings_screen.dart';
 import '../../theme/theme.dart';
 import 'widgets/download_controler.dart';
-
 
 class DownloadsScreen extends StatelessWidget {
   // Create the list of fake ressources
   final List<Ressource> ressources = [
     Ressource(name: "image1.png", size: 120),
-    Ressource(name: "image1.png", size: 500),
+    Ressource(name: "image2.png", size: 500),
     Ressource(name: "image3.png", size: 12000),
+    Ressource(name: "image4.png", size: 120000000),
   ];
 
   final List<DownloadController> controllers = [];
@@ -39,6 +40,9 @@ class DownloadsScreen extends StatelessWidget {
           SizedBox(height: 50),
 
           // TODO - Add the Download tiles
+          ...controllers.map(
+            (controller) => DownloadTile(controller: controller),
+          ),
         ],
       ),
     );
